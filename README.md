@@ -1,6 +1,7 @@
 <div align="center">
 
 # Financial Fraud Risk Engine
+<img width="1672" height="941" alt="Financial-Fraud-Risk-Engine" src="https://github.com/user-attachments/assets/117bd1d4-ad4e-435a-b258-0d11bd240eec" />
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-Risk%20Modeling-green)
