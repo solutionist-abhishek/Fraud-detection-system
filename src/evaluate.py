@@ -40,7 +40,7 @@ def as_repo_relative_path(path: Path) -> str:
     """Return a portable repo-relative path for saved artifacts.
 
     This prevents JSON artifacts from containing local absolute paths such as:
-    C:\\Users\\Amir\\Desktop\\...
+    C:\\Users\\<user>\\Desktop\\...
     """
     try:
         return path.resolve().relative_to(PROJECT_ROOT.resolve()).as_posix()

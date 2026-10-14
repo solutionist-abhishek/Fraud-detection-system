@@ -128,12 +128,16 @@ def plot_single_shap_bar(
     fig, ax = plt.subplots(figsize=(6, 4))
     y_pos = np.arange(len(selected_names))
 
-    ax.barh(y_pos, selected_shap)
+    ax.barh(y_pos, selected_shap, color="#087e8b")
     ax.set_yticks(y_pos)
     ax.set_yticklabels(selected_names)
     ax.invert_yaxis()
     ax.set_xlabel("SHAP value")
     ax.set_title("Top feature contributions for this transaction")
+    ax.set_facecolor("#f4f7fb")
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.grid(axis="x", color="#dce5ee", alpha=0.7)
+    ax.set_axisbelow(True)
 
     plt.tight_layout()
     return fig
@@ -172,6 +176,82 @@ def main():
     st.set_page_config(
         page_title="Financial Fraud Risk Engine",
         layout="wide",
+    )
+
+    st.markdown(
+        """
+        <style>
+        :root {
+            --dashboard-ink: #17243a;
+            --dashboard-muted: #66758d;
+            --dashboard-accent: #087e8b;
+            --dashboard-border: #e1e8f0;
+        }
+
+        .stApp {
+            background:
+                radial-gradient(ellipse at 12% 0%, rgba(8, 126, 139, 0.09), transparent 34%),
+                #f4f7fb;
+            color: var(--dashboard-ink);
+        }
+
+        .block-container {
+            padding-top: 2.25rem;
+            padding-bottom: 3rem;
+        }
+
+        h1, h2, h3 {
+            color: var(--dashboard-ink);
+            letter-spacing: -0.025em;
+        }
+
+        div[data-testid="stMetric"] {
+            background: #ffffff;
+            border: 1px solid var(--dashboard-border);
+            border-radius: 14px;
+            padding: 16px 18px;
+            box-shadow: 0 5px 18px rgba(23, 36, 58, 0.045);
+        }
+
+        div[data-testid="stMetricLabel"] {
+            color: var(--dashboard-muted);
+        }
+
+        div[data-testid="stMetricValue"] {
+            color: var(--dashboard-ink);
+        }
+
+        [data-testid="stSidebar"] {
+            background: #14243b;
+        }
+
+        [data-testid="stSidebar"] * {
+            color: #edf4fb;
+        }
+
+        [data-testid="stSidebar"] [data-baseweb="select"] *,
+        [data-testid="stSidebar"] input {
+            color: var(--dashboard-ink);
+        }
+
+        div[data-testid="stDataFrame"],
+        div[data-testid="stAlert"] {
+            border-radius: 12px;
+        }
+
+        .stDownloadButton button {
+            border-radius: 10px;
+            border-color: var(--dashboard-accent);
+            color: var(--dashboard-accent);
+        }
+
+        .stDownloadButton button:hover {
+            background: var(--dashboard-accent);
+            color: #ffffff;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
     )
 
     st.title("Financial Fraud Risk Engine")
@@ -288,10 +368,20 @@ This app wraps a trained fraud detection model into an **interactive risk dashbo
         st.markdown("**Fraud probability distribution**")
 
         fig, ax = plt.subplots()
-        ax.hist(df_scored["fraud_probability"], bins=30)
-        ax.axvline(thr, color="red", linestyle="--", label=f"threshold = {thr:.2f}")
+        ax.hist(
+            df_scored["fraud_probability"],
+            bins=30,
+            color="#087e8b",
+            edgecolor="#ffffff",
+            alpha=0.88,
+        )
+        ax.axvline(thr, color="#d3546a", linestyle="--", linewidth=2, label=f"threshold = {thr:.2f}")
         ax.set_xlabel("Fraud probability")
         ax.set_ylabel("Count")
+        ax.set_facecolor("#f4f7fb")
+        ax.spines[["top", "right"]].set_visible(False)
+        ax.grid(axis="y", color="#dce5ee", alpha=0.7)
+        ax.set_axisbelow(True)
         ax.legend()
         st.pyplot(fig)
 

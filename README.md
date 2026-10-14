@@ -8,7 +8,7 @@
 ![SHAP](https://img.shields.io/badge/SHAP-Explainability-orange)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
 ![Status](https://img.shields.io/badge/Status-Portfolio%20MVP-purple)
-[![CI](https://github.com/AmirhosseinHonardoust/Financial-Fraud-Risk-Engine/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/AmirhosseinHonardoust/Financial-Fraud-Risk-Engine/actions/workflows/ci.yml)
+[![CI](https://github.com/solutionist-abhishek/Fraud-detection-system/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/solutionist-abhishek/Fraud-detection-system/actions/workflows/ci.yml)
 
 </div>
 
@@ -221,8 +221,8 @@ Financial-Fraud-Risk-Engine/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/AmirhosseinHonardoust/Financial-Fraud-Risk-Engine.git
-cd Financial-Fraud-Risk-Engine
+git clone https://github.com/solutionist-abhishek/Fraud-detection-system.git
+cd Fraud-detection-system
 ```
 
 ### 2. Create a Virtual Environment
@@ -641,9 +641,9 @@ Potential next improvements:
 
 ## Author
 
-**Amir Honardoust**
+**Abhishek Singh**
 
-GitHub: [@AmirhosseinHonardoust](https://github.com/AmirhosseinHonardoust)
+GitHub: [@solutionist-abhishek](https://github.com/solutionist-abhishek)
 
 ---
 
